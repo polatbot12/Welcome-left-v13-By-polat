@@ -4,7 +4,7 @@ const invites = {};
 const wait = require("util").promisify(setTimeout);
 const moment = require("moment");
 const fs = require("fs");
-var prefix = "N/";
+var prefix = "E!";
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -38,7 +38,7 @@ client.on("ready", () => {
 
 client.on("guildMemberAdd", member => {
   let welcomer = member.guild.channels.find(
-    channel => channel.name === "➪│ᴡᴇʟᴄᴏᴍᴇ"
+    channel => channel.name === "welcome"
   );
   if (!welcomer) return;
   if (welcomer) {
@@ -48,7 +48,7 @@ client.on("guildMemberAdd", member => {
 
 client.on("guildMemberAdd", member => {
   let welcomer = member.guild.channels.find(
-    channel => channel.name === "➪│ᴡᴇʟᴄᴏᴍᴇ" /// naqeb 
+    channel => channel.name === "welcome" /// POLAT BOT
   );
   if (!welcomer) return;
   if (welcomer) {
@@ -77,8 +77,8 @@ client.on("guildMemberAdd", member => {
           .fromNow()}\`\``,
         true
       )
-      .setImage("")//lera rasmek dane ba kayfexot
-      .setFooter(`${h.tag}`, ""); //////rsme sar server lera dane
+      .setImage("")//lera rasmek dane ba Dli xhot
+      .setFooter(`${h.tag}`, ""); //////rasme sar server lera dane
 
     welcomer.send({ embed: norelden });
   }
@@ -87,7 +87,7 @@ client.on("guildMemberAdd", member => {
 client.on("guildMemberRemove", member => {
   let channel = member.guild.channels.find(
     "name",
-    "│ᴍᴇᴍʙᴇʀ-ʟᴇғᴛ"//nawe channelaka lera dane
+    "left"//nawe channelaka lera dane
   );
   let memberavatar = member.user.avatarURL;
   if (!channel) return;
@@ -98,7 +98,7 @@ client.on("guildMemberRemove", member => {
     .addField("لێفتی کرد لە سێرڤەر")
     .addField("رۆشت لە سیرڤەر")
     .addField("ژمارەی مێمبەری سێرڤەر", `${member.guild.memberCount}` + " کەس")
-    .setImage("")//wenay left lera dane naqeb | hama
+    .setImage("")//wenay left lera dane  POLAT|BOT
     .setFooter(`==== **${member.guild.name}====`, "")
     .setTimestamp();
 
@@ -106,13 +106,13 @@ client.on("guildMemberRemove", member => {
 });
 
 client.on("message", zaid => {
-  if (zaid.content === prefix + "bot") {
+  if (client.content === prefix + "bot") {
     const bot = new Discord.RichEmbed()
       .setAuthor(client.user.username, client.user.avatarURL)
       .setColor("#00000")
       .addField(
         "**____خێرای بۆتەکە____**: ",
-        ` ${Date.now() - zaid.createdTimestamp}` + "__ __ ",
+        ` ${Date.now() - client.createdTimestamp}` + "__ __ ",
         true
       )
       .addField("**__سێرڤەرەکان__** : ", `→ ${client.guilds.size}`, true)
@@ -122,8 +122,8 @@ client.on("message", zaid => {
       .addField("**دروست کەری بۆتەکە** : ", `→ nawe xot lera dane `)
 
       .setImage("")//rmek ba fle xot
-      .setFooter(zaid.author.username, zaid.author.avatarURL);
-    zaid.channel.send(bot);
+      .setFooter(client.author.username, zaid.author.avatarURL);
+    client.channel.send(bot);
   }
 });
 
@@ -193,34 +193,34 @@ client.on("message", async message => {
 });
 
 client.on("ready", () => {
-  client.user.setActivity("N/help ", { type: "Playing" });
+  client.user.setActivity("E!help ", { type: "Playing" });
   client.user.setStatus("idle");
 });
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
     message.channel.send(` ***Help Comand***
-          ***__بۆیارمەتی__***
+          
+          
+┏◣ Name > welcome ◢┓
+
+┏◣ Name > left ◢┓
+
+┏◣ E!lock ◢┓
+
+┏◣ E!unlock ◢┓
+
+┏◣ E!user◢┓
  
-┏◣ craete channel welcome ◢┓
+┏◣ E!unbansall ◢┓
 
-┏◣craete channel left ◢┓
+┏◣ E!muvall  ◢┓
 
-┏◣ N/lock◢┓
-
-┏◣ N/unlock◢┓
-
-┏◣N/user◢┓
- 
-┏◣N/unbansall ◢┓
-
-┏◣ N/muvall  ◢┓
-
-┏◣ N/profile  ◢┓
+┏◣ E!profile  ◢┓
                                
- ┏◣N/invitebot◢┓
+ ┏◣ E!invitebot ◢┓
                                       
- ┏◣N/support◢┓ `);
+ ┏◣ E!support ◢┓ `);
   }
 });
 
@@ -279,4 +279,4 @@ client.on("message", message => {
   }
 });
 
-client.login("ODMxMDcxOTM3ODUyOTk3NjYy.YHP6Dg.B83z-oJQkHDFIQ7qo3lWlorIcDk");
+client.login("");
